@@ -1,0 +1,7 @@
+name: XP-storage
+version: ${project.version}
+main: com.matmatt.xpstorage.XPstorage
+api-version: "1.13"
+authors: [Matheos]
+description: Store away your XP levels in a sign so you don't loose them if you die!
+website: htttp://matmatt.000webhostapp.com
