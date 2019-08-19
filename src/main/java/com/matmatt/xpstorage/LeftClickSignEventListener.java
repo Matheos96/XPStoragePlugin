@@ -34,7 +34,8 @@ public class LeftClickSignEventListener implements Listener {
                                 theSign.update(true);
                                 player.sendMessage(StringResources.XP_BACK);
                             } catch (NumberFormatException e) {
-                                player.sendMessage(StringResources.NO_XP_BACK);
+                                if (!theSign.getLine(2).trim().equals(""))
+                                    player.sendMessage(StringResources.NO_XP_BACK);
                             }
                         } else
                             player.sendMessage(StringResources.NOT_YOUR_XP);
