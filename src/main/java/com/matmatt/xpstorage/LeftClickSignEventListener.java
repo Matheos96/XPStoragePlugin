@@ -17,6 +17,7 @@ public class LeftClickSignEventListener implements Listener {
     public void onPlayerLeftClick(PlayerInteractEvent event) {
         Player player = event.getPlayer();
 
+
         if (event.getAction() == Action.LEFT_CLICK_BLOCK && event.getClickedBlock() != null) {
             if (player.getInventory().getItemInMainHand().getType() == Material.EMERALD) {
                 if (event.getClickedBlock().getType() == Material.BIRCH_WALL_SIGN
@@ -25,7 +26,7 @@ public class LeftClickSignEventListener implements Listener {
                     Sign theSign = (Sign) event.getClickedBlock().getState();
 
                     if (theSign.getLine(0).toLowerCase().equalsIgnoreCase(StringResources.XP_STORAGE)) {
-                        if (theSign.getLine(1).equals(StringResources.playerBrackets(player.getDisplayName()))) {
+                        if (theSign.getLine(1).equals(StringResources.playerBrackets(player.getPlayerListName()))) {
                             try {
                                 int storedXP = Integer.parseInt(theSign.getLine(2).trim());
                                 player.giveExpLevels(storedXP);

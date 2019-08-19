@@ -14,12 +14,15 @@ public class BlockSignDestruction implements Listener {
     public void onBlockBreakEvent(BlockBreakEvent event) {
         Block block = event.getBlock();
 
+        System.out.println("BLOCK BREAK EVENT CALLED");
+
         if (block instanceof Sign) {
             Sign sign = (Sign) block.getState();
             String line0 = sign.getLine(0);
             if (line0.toLowerCase().equalsIgnoreCase(StringResources.XP_STORAGE)) {
+                System.out.println("BLOCK BROKEN IS SIGN");
                 Player player = event.getPlayer();
-                if (!sign.getLine(1).equals(StringResources.playerBrackets(player.getDisplayName()))) {
+                if (!sign.getLine(1).equals(StringResources.playerBrackets(player.getPlayerListName()))) {
                     player.sendMessage(StringResources.NO_BREAK_OTHERS_SIGNS);
                     event.setCancelled(true);
                 }

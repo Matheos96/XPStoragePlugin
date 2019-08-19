@@ -25,7 +25,7 @@ public class RightClickSignEventListener implements Listener {
                     Sign theSign = (Sign) event.getClickedBlock().getState();
 
                     if (theSign.getLine(0).toLowerCase().equalsIgnoreCase((StringResources.XP_STORAGE))) {
-                        if (theSign.getLine(1).equals(StringResources.playerBrackets(player.getDisplayName()))) {
+                        if (theSign.getLine(1).equals(StringResources.playerBrackets(player.getPlayerListName()))) {
                             int storedLevels = 0;
                             int playerLevels = player.getLevel();
                             if (playerLevels > 0) {
@@ -46,7 +46,7 @@ public class RightClickSignEventListener implements Listener {
                         int playerLevels = player.getLevel();
                         if (playerLevels > 0) {
                             theSign.setLine(0, StringResources.XP_STORAGE);
-                            theSign.setLine(1, StringResources.playerBrackets(player.getDisplayName()));
+                            theSign.setLine(1, StringResources.playerBrackets(player.getPlayerListName()));
                             theSign.setLine(2, String.valueOf(playerLevels));
                             theSign.update(true);
                             player.giveExpLevels(-player.getLevel());
